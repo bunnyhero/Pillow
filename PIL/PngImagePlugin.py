@@ -243,9 +243,10 @@ class PngStream(ChunkStream):
         # transparency
         s = ImageFile._safe_read(self.fp, len)
         if self.im_mode == "P":
-            i = string.find(s, chr(0))
-            if i >= 0:
-                self.im_info["transparency"] = i
+            #i = string.find(s, chr(0))
+            #if i >= 0:
+            #    self.im_info["transparency"] = i
+            self.im_info["transparency"] = s
         elif self.im_mode == "L":
             self.im_info["transparency"] = i16(s)
         elif self.im_mode == "RGB":
